@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    'use strict'
+    function test(){
+        console.log(this);
+        return 1;
+    }
+    test();
+
+    //对象内部方法调用，this指向调用该方法的对象
+    var obj={
+        x:0,test:function(){
+            console.log(this);
+        }
+    }
+    obj.test();
+
+
+    
+    var objA={"objName":"AAA"};
+    var objB={"objName":"BBB"};
+    objA.test=function(){
+        console.log(this.objName);
+    }
+    objA.test();
+    //方法.call(当前对象)
+    //将方法的调用执行从原有对象切换到当前对象
+    objA.test.call(objB);
+
+
+    // function Person(username){
+    //     this.username=username;
+    //     this.sayHi=function(){
+    //         console.log(this.username);
+    //     }
+    // }
+    function Person(username){
+        this.username=username;
+    }
+    Person.prototype.sayHi=function(){
+        console.log(this.username);
+    }
+    var person =new Person("zhangsan");
+    var person1=new Person("lisi");
+    console.log(person,person1);
+
+
+    //实参数与形参数不同
+    function sum(x,y,z){
+        z=z||3;
+        return x+y+z;
+    }
+    sum(1,2,3,4);
+
+
+    //实参数量大于形参，可以使用arfuments获取实参
+    //argumens类数组结构
+    function test(){
+        console.log(arguments);
+    }
+    test("hello","world");
+
+    function test(){
+        var s="";
+        for(var i=0;i<arguments.length;i++){
+            s+=arguments[i];
+        }
+        return s;
+    }
+    test("hello","world");
+
+    
+</script>
+</html>

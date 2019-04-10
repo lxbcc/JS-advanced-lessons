@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    max(2,3);
+    function max(a,b){
+        return a>b?a:b;
+    }
+    // var min=function(){
+    //     return x>y?y:x;
+    // }
+    //不能在min声明前调用min
+
+
+
+    //Function(arg1,arg2.arg3,....,函数体)
+    //执行效率相对较低，但是更加灵活
+    var fn1=new Function('a','b','return a>b?a:b');
+    fn1(2,3);
+</script>
+</html>
